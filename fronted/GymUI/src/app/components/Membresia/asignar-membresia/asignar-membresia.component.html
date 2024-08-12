@@ -1,0 +1,66 @@
+<!-- <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+</div> -->
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-gym">
+    <h4 class="title">Registrar Membresia</h4>
+    <div>
+        <label for="tipoMembresia" class="form-label">Tipo</label>
+        <select id="tipoMembresia" formControlName="tipoMembresia"
+            [ngClass]="[showError('tipoMembresia') ? 'is-invalid': '' ]">
+            <option value="" disabled>Seleccione un tipo</option>
+            <option value="BASICA">Basica</option>
+            <option value="PREMIUM">Premium</option>
+            <option value="VIP">VIP</option>
+        </select>
+        <div *ngIf="showError('tipoMembresia')" class="invalid-feedback">Tipo es requerido</div>
+    </div>
+    <div>
+        <label for="precio" class="form-label">Precio</label>
+        <input id="precio" formControlName="precio"
+            [ngClass]="['form-control', showError('precio') ? 'is-invalid' : '']" />
+        <div *ngIf="showError('precio')" class="invalid-feedback">
+            <div class="invalid-feedback" *ngIf="formulario.get('precio')?.errors?.['required']">Precio es requerido
+            </div>
+            <div class="invalid-feedback" *ngIf="formulario.get('precio')?.errors?.['pattern']">Precio debe ser un
+                número válido</div>
+        </div>
+    </div>
+
+    <div>
+        <label for="fechaCreacion" class="form-label">Fecha de Creación</label>
+        <input id="fechaCreacion" formControlName="fechaCreacion" type="date"
+            [ngClass]="['form-control', showError('fechaCreacion') ? 'is-invalid' : '']" />
+        <div *ngIf="showError('fechaCreacion')" class="invalid-feedback">Fecha de Creación es requerida</div>
+    </div>
+
+    <div>
+        <label for="fechaExpiracion" class="form-label">Fecha de Expiración</label>
+        <input id="fechaExpiracion" formControlName="fechaExpiracion" type="date"
+            [ngClass]="['form-control', showError('fechaExpiracion') ? 'is-invalid' : '']" />
+        <div *ngIf="showError('fechaExpiracion')" class="invalid-feedback">Fecha de Expiración es requerida</div>
+        <div *ngIf="formulario.errors?.['fechaInvalida']" class="invalid-feedback">
+            La fecha de creación debe ser menor que la fecha de expiración.
+        </div>
+    </div>
+
+    <div>
+        <label for="estadoMembresia" class="form-label">Estado</label>
+        <select class="form-select" id="estadoMembresia" formControlName="estadoMembresia"
+            [ngClass]="{'is-invalid': showError('estadoMembresia')}">
+            <option selected disabled value="">Choose...</option>
+            <option value="true">Activo</option>
+            <option value="false">Inactivo</option>
+        </select>
+        <div *ngIf="showError('estadoMembresia')" class="invalid-feedback">Estado es requerido</div>
+    </div>
+    <button class="btn-submit" type="submit" [disabled]="formulario.invalid">Submit</button>
+</form>
+
+<div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+</div>
+
+<!-- Contenedor para mensajes de error -->
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+</div>

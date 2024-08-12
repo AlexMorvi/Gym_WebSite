@@ -1,0 +1,30 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%; /* Asegura que la tabla no exceda el ancho del contenedor */
+    margin-bottom: 1px;
+}
+
+.table th, .table td {
+    color: var(--navbar-color);
+    border: 2px solid var(--light-greenBtn-color); /* Borde */
+    padding: 8px; /* Espaciado para las celdas */
+}
+
+.datos{
+    cursor: pointer;
+}
+.datos:hover {
+    background-color: #def8de;
+    opacity: 0.8;
+}
+
+
+.datos td{
+    background-color: inherit;
+}

@@ -1,0 +1,83 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-gym">
+    <h4 class="title">Registrar Entrenador</h4>
+    
+    <div>
+        <label for="cedula">Cedula</label>
+        <input class="form-control" id="cedula" formControlName="cedula" [ngClass]="{'is-invalid': showError('cedula')}">
+        <div *ngIf="showError('cedula')">
+            <div class="error-message" *ngIf="formulario.get('cedula')?.errors?.['required']">La cedula es requerida</div>
+            <div class="error-message" *ngIf="formulario.get('cedula')?.errors?.['minlength'] || formulario.get('cedula')?.errors?.['maxlength']">
+                Debe tener 10 dígitos.
+            </div>
+            <div class="error-message" *ngIf="formulario.get('cedula')?.errors?.['pattern']">Solo se permiten caracteres numéricos.</div>
+        </div>
+    </div>
+    
+    <div>
+        <label for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" formControlName="nombre" [ngClass]="{'is-invalid': showError('nombre')}">
+        <div class="error-message" *ngIf="showError('nombre')">
+            Nombre es requerido
+        </div>
+    </div>
+    
+    <div>
+        <label for="apellido">Apellido</label>
+        <input class="form-control" id="apellido" formControlName="apellido" [ngClass]="{'is-invalid': showError('apellido')}">
+        <div class="error-message" *ngIf="showError('apellido')">
+            Apellido es requerido
+        </div>
+    </div>
+    
+    <div>
+        <label for="direccion">Dirección</label>
+        <input class="form-control" id="direccion" formControlName="direccion" [ngClass]="{'is-invalid': showError('direccion')}">
+        <div class="error-message" *ngIf="showError('direccion')">
+            Dirección es requerida
+        </div>
+    </div>
+    
+    <div>
+        <label for="telefono">Teléfono</label>
+        <input class="form-control" id="telefono" formControlName="telefono" [ngClass]="{'is-invalid': showError('telefono')}">
+        <div class="error-message" *ngIf="showError('telefono')">
+            Teléfono requerido y debe tener solo números.
+        </div>
+    </div>
+    
+    <div>
+        <label for="correo">Email</label>
+        <input class="form-control" id="correo" formControlName="correo" [ngClass]="{'is-invalid': showError('correo')}">
+        <div *ngIf="showError('correo')">
+            <div class="error-message" *ngIf="formulario.get('correo')?.errors?.['required']">Email es requerido</div>
+            <div class="error-message" *ngIf="formulario.get('correo')?.errors?.['correo']">Formato de Email Inválido.</div>
+        </div>
+    </div>
+    
+    <div>
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <input class="form-control" id="fechaNacimiento" type="date" formControlName="fechaNacimiento" [ngClass]="{'is-invalid': showError('fechaNacimiento')}">
+        <div class="error-message" *ngIf="showError('fechaNacimiento')">
+            La Fecha de Nacimiento es requerida
+        </div>
+    </div>
+    
+    <div>
+        <label for="especialidad">Especialidad</label>
+        <input class="form-control" id="especialidad" formControlName="especialidad" [ngClass]="{'is-invalid': showError('especialidad')}">
+        <div class="error-message" *ngIf="showError('especialidad')">
+            Especialidad es requerida
+        </div>
+    </div>
+    
+    <button class="btn-submit" type="submit" [disabled]="formulario.invalid">Submit</button>
+</form>
+
+<div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+</div>
+
+<!-- Contenedor para mensajes de error -->
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+</div>

@@ -1,0 +1,47 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-gym">
+    <h4 class="title">Registrar Entrenamiento</h4>
+    
+    <div>
+        <label for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" formControlName="nombre" [ngClass]="{'is-invalid': showError('nombre')}">
+        <div class="error-message" *ngIf="showError('nombre')">
+            Nombre es requerido
+        </div>
+    </div>
+    <div>
+        <label for="descripcion">Descripción</label>
+        <input id="descripcion" formControlName="descripcion">
+        <div class="error-message" *ngIf="showError('descripcion')">
+            La Descripción es requerido
+        </div>
+    </div>
+
+    <div>
+        <label for="duracion">Duración</label>
+        <input id="duracion" formControlName="duracion" placeholder="min">
+        <div class="error-message" *ngIf="showError('duracion')">
+            <div class="error-message" *ngIf="formulario.get('duracion')?.errors?.['required']">Duración es requerido</div>
+            <div class="error-message" *ngIf="formulario.get('duracion')?.errors?.['duracion']">Ingresa solo numeros.</div>
+        </div>
+    </div>
+    <div>
+      <label for="entrenador" class="form-label">Estado</label>
+      <select class="form-select" id="entrenador" formControlName="entrenador"
+              [ngClass]="{'is-invalid': showError('entrenador')}">
+        <option selected disabled value="">Choose...</option>
+        <option *ngFor="let option of entrenadorOptions" [value]="option.cedula">{{ option.nombre +' '+ option.apellido }}</option>
+      </select>
+      <div *ngIf="showError('entrenador')" class="error-message invalid-feedback">Entrenadores requerido</div>
+    </div>
+
+    <button class="btn-submit" type="submit" [disabled]="formulario.invalid">Submit</button>
+</form>
+
+<div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+</div>
+
+<!-- Contenedor para mensajes de error -->
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+</div>

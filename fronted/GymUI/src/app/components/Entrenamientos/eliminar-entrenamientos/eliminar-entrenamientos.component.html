@@ -1,0 +1,12 @@
+<div class="section-delete">
+    <h3>Eliminar Entrenamiento</h3>
+    <app-search-bar (searchEvent)="receiveSearchText($event)" ></app-search-bar>
+    <app-tablet-delete type="entrenamientos" [data]="dataFiltered" (deleteEvent)="deleteRow($event)"></app-tablet-delete>
+    <div *ngIf="successMessage" class="alert alert-success" role="alert">
+        {{ successMessage }}
+    </div>
+    
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+    </div>
+</div>

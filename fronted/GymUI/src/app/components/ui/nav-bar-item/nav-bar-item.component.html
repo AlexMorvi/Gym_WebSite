@@ -1,0 +1,16 @@
+<ng-container>
+    <div class="item">
+        <div>
+            <img src="../../../assets/{{title}}.svg" alt="">
+        </div>
+        <h3>{{title | titlecase}} </h3>
+        <button class="d" (click)="showActions()">
+            <img *ngIf="title != 'dashboard'" src="../../../assets/arrow-{{isActive? 'bottom': 'right'}}.svg" alt="">
+        </button>
+    </div>
+    <div class="sub-items" *ngIf="isActive">
+        <button class="btn-subitem" *ngFor="let action of actions" [routerLink]="[{ outlets: { secondary: [action] } }]">
+            {{action | actions  | titlecase}}
+        </button>
+    </div>
+</ng-container>

@@ -1,0 +1,29 @@
+<!-- <h3>Tabla de {{structure?.type | titlecase}}</h3> -->
+<div *ngIf="loading" class="loading-indicator">
+    <p aria-hidden="true">
+        <span class="placeholder col-6"></span>
+    </p>
+</div>
+<div *ngIf="!loading" class="table-container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th *ngFor="let column of structure?.columns">{{column | actions | titlecase}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="datos" *ngFor="let row of data" >
+                <ng-container *ngFor="let column of structure?.columns">
+                    <td *ngIf="isObjectOrArray(row[column]); else defaultCell">
+                        <app-cell-formated [column]="column" [contenido]="row[column]"></app-cell-formated>
+                    </td>
+                    <ng-template #defaultCell>
+                        <td>
+                            {{ row[column] }}
+                        </td>
+                    </ng-template>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

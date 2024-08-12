@@ -1,0 +1,31 @@
+<div class="section-find">
+    <h3>Tabla Entrenador</h3>
+    <app-search-bar (searchEvent)="receiveSearchText($event)" ></app-search-bar>
+    <app-tablet-update type="entrenadores" [data]="dataFiltered" (rowEvent)="receiveRow($event)" ></app-tablet-update>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-gym">
+        <h4 class="title">Actualizar Cliente</h4>
+        <div>
+            <label for="direccion">Dirección</label>
+            <input class="form-control" id="direccion" formControlName="direccion" [ngClass]="{'is-invalid': showError('direccion')}">
+        </div>
+    
+        <div>
+          <label for="telefono">Telefono</label>
+          <input class="form-control" id="telefono" formControlName="telefono" [ngClass]="{'is-invalid': showError('telefono')}">
+          <div *ngIf="showError('telefono')" class="invalid-feedback">
+            Telefono debe tener solo números.
+          </div>
+        </div>
+    
+        <div>
+            <label for="correo">Email</label>
+            <input class="form-control" id="correo" formControlName="correo" [ngClass]="{'is-invalid': showError('correo')}" >
+            <div class="error-message" *ngIf="showError('correo')">
+                <div class="error-message" *ngIf="formulario.get('correo')?.errors?.['required']">Email es requerido</div>
+                <div class="error-message" *ngIf="formulario.get('correo')?.errors?.['correo']">Formato de Email Inválido.</div>
+            </div>
+        </div>
+    
+        <button class="btn-submit" type="submit" [disabled]="formulario.invalid">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,5 @@
+<div class="section-find">
+    <h3>Entrenadores: </h3>
+    <app-search-bar (searchEvent)="receiveSearchText($event)" ></app-search-bar>
+    <app-tablet type="entrenadores" [data]="dataFiltered" ></app-tablet>
+</div>

@@ -1,0 +1,308 @@
+/* body {
+    font-family: "Space Grotesk", sans-serif;
+    padding: 0;
+
+    color: #fff;
+} */
+
+.header {
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 2px solid #444;
+}
+
+.header .logo {
+    font-size: 2em;
+    color: #FFD700;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FFD700;
+}
+
+.btn {
+    background-color: #FFD700;
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FFA500;
+    transform: scale(1.05);
+}
+
+/* Sección Principal */
+.main-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/gym1.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 2s ease;
+}
+
+.main-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.main-section h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.main-section .btn {
+    z-index: 1;
+}
+
+/* Estilos para mantener las proporciones */
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Galería y texto de Sobre Nosotros */
+.about-section {
+    position: relative;
+    padding: 50px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.about-content {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.about-carousel {
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    animation: slide 30s infinite;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(0); }
+}
+
+/* Sección de Servicios */
+.services-section {
+    padding: 50px 20px;
+    text-align: flex;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    align-items: center;
+}
+
+.service {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.service:hover {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    text-transform: uppercase;
+}
+
+/* Sección de Entrenadores */
+.trainers-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.trainers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.trainer {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.trainer:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de Horarios */
+.schedule-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 15px;
+    border: 1px solid #444;
+    text-align: center;
+    background-color: #222;
+    color: #fff;
+}
+
+/* Sección de Contacto */
+.contact-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact-flex {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-flex form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-flex #map {
+    width: 400px;
+    height: 450px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-grid, .trainers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-flex {
+        flex-direction: column;
+    }
+
+    iframe {
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: #111;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #444;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.main-section h1 {
+    font-size: 7em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    z-index: 1;
+    font-weight: bold;
+}
+
+.main-section h1 span {
+    color: yellow;
+}
+
+/* Estilo para los botones */
+.btn {
+    font-weight: bold;
+}
+
+/* Estilo para los títulos de las secciones */
+.services-section h2,
+.trainers-section h2,
+.schedule-section h2,
+.contact-section h2 {
+    font-size: 3em;
+    color: yellow;
+    font-weight: bold;
+    text-align: center;
+}

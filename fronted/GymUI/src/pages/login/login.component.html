@@ -1,0 +1,60 @@
+<!-- <div class="login-container">
+    <div class="login-box">
+        <div class="image-container">
+            <img src="assets/images/gym-image.jpg" alt="Imagen de gimnasio">
+        </div>
+        <div class="form-container">
+            <h2>BIENVENIDOS DE NUEVO</h2>
+            <form>
+                <input type="text" placeholder="Ingrese su cuenta">
+                <input type="password" placeholder="Contraseña">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Recuerdame</label>
+                </div>
+                <button type="submit" [routerLink]="'/dashboard'">INICIO DE SESIÓN</button>
+                <a href="#">¿Olvidó su Contraseña?</a>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="login-container">
+    <div class="login-box">
+        <div class="image-container">
+            <img src="assets/images/gym-image.jpg" alt="Imagen de gimnasio">
+        </div>
+        <div class="form-container">
+            <h2>BIENVENIDOS DE NUEVO</h2>
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                <div>
+                    <input type="text" formControlName="username" placeholder="Ingrese su cuenta" [ngClass]="{'is-invalid': showError('username')}">
+                    <div *ngIf="showError('username')" class="error-message">
+                        Usuario es requerido
+                    </div>
+                </div>
+                <div>
+                    <input type="password" formControlName="password" placeholder="Contraseña" [ngClass]="{'is-invalid': showError('password')}">
+                    <div *ngIf="showError('password')" class="error-message">
+                        Contraseña es requerida
+                    </div>
+                </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Recuerdame</label>
+                </div>
+                <button type="submit" [disabled]="formulario.invalid" [routerLink]="['/dashboard']">INICIO DE SESIÓN</button>
+                <a href="#">¿Olvidó su Contraseña?</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+</div>

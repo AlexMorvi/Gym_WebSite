@@ -1,0 +1,121 @@
+<!-- Encabezado -->
+<header class="header">
+    <div class="logo">GYMBRO</div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ACERCA DE</a></li>
+            <li><a href="#services">SERVICIOS</a></li>
+            <li><a href="#schedule">HORARIOS</a></li>
+            <li><a href="#contact">CONTACTO</a></li>
+            <li><a class="btn login" [routerLink]="'/login'">LOGIN</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Sección Principal -->
+<section class="main-section" id="home">
+    <div class="overlay"></div>
+    <h1>SÉ TU MEJOR VERSIÓN</h1>
+    <a href="#" class="btn join">ÚNETE HOY</a>
+</section>
+
+<!-- Sección Sobre Nosotros -->
+<section class="about-section" id="about">
+    <div class="about-content">
+        <h2>SOBRE GYMBRO</h2>
+        <p>Fundamos GYMBRO en 2019 con el objetivo de mantener conectados a todos nuestros clientes...</p>
+    </div>
+    <div class="about-carousel">
+        <div class="carousel-slide" style="background-image: url('img/gym1.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('img/gym2.jpg');"></div>
+        <!-- aqui podemos meter más -->
+    </div>
+</section>
+
+<!-- Sección de Servicios -->
+<section class="services-section" id="services">
+    <h2>¿QUÉ TE OFRECEMOS?</h2>
+    <div class="services-grid">
+        <div class="service" style="background-image: url('img/gym3.jpg');">
+            <div class="overlay">APTITUD FÍSICA BÁSICA</div>
+        </div>
+        <div class="service" style="background-image: url('img/gym4.jpg');">
+            <div class="overlay">CURSO MUSCULAR AVANZADO</div>
+        </div>
+        <div class="service" style="background-image: url('img/gym1.jpg');">
+            <div class="overlay">ENTRENAMIENTO PERSONALIZADO</div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Entrenadores -->
+<section class="trainers-section" id="trainers">
+    <h2>NUESTROS ENTRENADORES</h2>
+    <div class="trainers-grid">
+        <div class="trainer" style="background-image: url('img/entrenador2.jpg');">
+            <div class="overlay">
+                <h3>Donna Bleaker, 31</h3>
+                <p>Especializada en la Universidad de Massachusetts...</p>
+            </div>
+        </div>
+        <div class="trainer" style="background-image: url('img/cbum.jpg');">
+            <div class="overlay">
+                <h3>C Bum, 37</h3>
+                <p>Especialista en culturismo...</p>
+            </div>
+        </div>
+        <div class="trainer" style="background-image: url('img/entrenador1.jpg');">
+            <div class="overlay">
+                <h3>Thomas Xue, 44</h3>
+                <p>Entrenador de crossfit reconocido...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Horarios -->
+<section class="schedule-section" id="schedule">
+    <h2>HORARIOS DISPONIBLES</h2>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th>Clase</th>
+                <th>Horario</th>
+                <th>Entrenador</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Clase de Acondicionamiento Físico</td>
+                <td>10:00 - 12:00</td>
+                <td>C Bum</td>
+            </tr>
+            <!-- Agregar más filas según sea necesario -->
+        </tbody>
+    </table>
+</section>
+
+<!-- Sección de Contacto -->
+<section class="contact-section" id="contact">
+    <h2>¿TIENES ALGUNA DUDA?</h2>
+    <div class="contact-flex">
+        <div id="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.240822908478!2d-78.50169354458005!3d-0.11555670000000073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d58565dcffb04b%3A0x4af3e0dc798f7dd0!2sEXCLUSIVE%20GYM!5e0!3m2!1ses!2sec!4v1723158249747!5m2!1ses!2sec"
+                width="400" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <form action="#">
+            <input type="text" placeholder="Tu nombre*" required>
+            <input type="email" placeholder="Tu correo*" required>
+            <input type="text" placeholder="Asunto*" required>
+            <textarea placeholder="Tu mensaje*" required></textarea>
+            <button type="submit" class="btn submit">ENVIAR MENSAJE</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>Derechos de autor © 2024 Gymbro - Diseñado por AJFB</p>
+</footer>

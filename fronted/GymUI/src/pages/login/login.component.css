@@ -1,0 +1,117 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+}
+
+.login-container {
+    background-color: #0c1618;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.login-box {
+    display: flex;
+    align-items: center;
+}
+
+.image-container img {
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    padding: 60px;
+    border-radius: 120px; 
+}
+
+.form-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    font-family: 'Anton', sans-serif;
+    font-style: italic;
+    color: white;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 93%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #d1ac00;
+    font-family: 'Anton', sans-serif;
+    font-size: 16px;
+    background-color: #3D474A;
+    color: #d1ac00;
+}
+
+form input[type="text"]::placeholder,
+form input[type="password"]::placeholder {
+    color: #d1ac00;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.remember-me input {
+    margin-right: 10px;
+}
+
+.remember-me label {
+    font-family: 'Anton', sans-serif;
+    color: white;
+    font-size: 14px;
+}
+
+form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #d1ac00;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-family: 'Anton', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #ffd92e;
+}
+
+form a {
+    display: block;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: red;
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+    margin-top: 10px;
+}
